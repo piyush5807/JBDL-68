@@ -260,14 +260,8 @@ public class UserController {
 //    JSONObject - from json-simple
 
     @DeleteMapping("/user/{userId}")
-    public ResponseEntity deleteUser(@PathVariable("userId") Integer id) {
-        try {
-            this.userService.delete(id);
-            new ResponseEntity<>(HttpStatus.OK);
-        }catch (NotFoundException e){
-            // return 400 from here
-//            new ResponseEntity<>();
-        }
+    public void deleteUser(@PathVariable("userId") Integer id) {
+        this.userService.delete(id);
     }
 
     /**
