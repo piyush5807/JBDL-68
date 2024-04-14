@@ -6,6 +6,10 @@ import com.example.demorestapis.repository.UserRepository;
 import com.example.demorestapis.requestDtos.UserPatchUpdateRequest;
 import com.example.demorestapis.requestDtos.UserUpdateRequest;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class UserService {
 
     private UserRepository userRepository;
@@ -16,8 +20,8 @@ public class UserService {
 
     public User create(UserCreateRequest userCreateRequest){
 
-        User user = userCreateRequest.to();
-        user = userRepository.create(user);
+        User user = userCreateRequest.to(); // 10 user objects
+        user = userRepository.create(user); // 1 userRepository
         return user;
 
         // Convert the dto into model
@@ -100,9 +104,33 @@ public class UserService {
         return userRepository.get(id);
     }
 
-    public void delete(Integer id) {
+
+    public void delete(Integer id) throws IOException  {
+        FileInputStream fileInputStream = new FileInputStream("abc.txt");
+        fileInputStream.read();
         this.userRepository.delete(id);
+
+//        try{
+//            File.delete();
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+
+
     }
+
+    public void delete2(Integer id) throws Exception{
+            int a = 1 / 0;
+            this.userRepository.delete(id);
+    }
+
+    /**
+     * Error handling can be done in 2 ways
+     * 1. try catch block :
+     *          1.1 suppress:
+     *          1.2 pass it on to the calling function
+     * 2. throws exception keyword
+     */
 
 //    public User to(UserCreateRequest userCreateRequest){
 //        User user = new User();

@@ -3,6 +3,7 @@ package com.example.demorestapis.repository;
 import com.example.demorestapis.exceptions.NotFoundException;
 import com.example.demorestapis.models.User;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -40,12 +41,24 @@ public class UserRepository { // here we should only have models
         return user;
     }
 
-    public void delete(Integer id) {
+    /**
+     * 1. Deleting from the datastore (HashMap)
+     * 2. Deleting the temp file for that particular user
+     * @param id
+     */
 
-        if(!userMap.containsKey(id)){
-            throw new NotFoundException("user not found"); // 400
-        }
+    public void delete(Integer id){
 
-        this.userMap.remove(id);
+//        try {
+            if (!userMap.containsKey(id)) {
+                throw new NotFoundException("user not found"); // 400
+            }
+
+            this.userMap.remove(id);
+
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            throw e;
+//        }
     }
 }

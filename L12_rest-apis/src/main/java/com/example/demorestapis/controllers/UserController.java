@@ -16,12 +16,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
 
 @RestController // This annotation makes a classes visible as a controller to the dispatcher servlet
 public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
+
+
 
     /**
      * Classes doing some action
@@ -259,10 +263,25 @@ public class UserController {
 //    Map<String, String>
 //    JSONObject - from json-simple
 
+    // throws keyboard
+
     @DeleteMapping("/user/{userId}")
-    public void deleteUser(@PathVariable("userId") Integer id) {
-        this.userService.delete(id);
+    public ResponseEntity deleteUser(@PathVariable("userId") Integer id) throws IOException {
+//        try {
+            this.userService.delete(id);
+            return new ResponseEntity(HttpStatus.OK);
+//        }catch (NotFoundException e){
+//            e.printStackTrace();
+//            this.logger.error("deleteUser: userId {} not found", id);
+//            return new ResponseEntity(HttpStatus.NOT_FOUND);
+//        }catch (Exception e){
+//            this.logger.error("deleteUser: for userId {}, got an exception", id);
+//            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
+
+    // Static methods
+    // Instance methods / member functions
 
     /**
      * ControllerAdvice: Define all the exception --> status code mapping
