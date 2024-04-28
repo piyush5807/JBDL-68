@@ -8,6 +8,18 @@ import java.util.Date;
 // POJO: Plain old java object
 public class UserCreateRequest {
 
+    /**
+     * email : abc@gmail.com
+     * name: ABC
+     * gender: MALE
+     * age: 10
+     * password: abc123
+     *
+     * UserCreateRequest request = new UserCreateRequest();
+     * request.setEmail(email);
+     * request.setName()
+     */
+
     private String name;
 
     private String email;
