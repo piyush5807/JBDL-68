@@ -1,0 +1,43 @@
+
+
+Redis commands
+
+—————————— STRING ——————————-
+SET
+GET
+KEYS
+INCR
+DECR
+SETEX - set with an expiry 
+
+——————————————————LIST —————————————————
+
+LPUSH - left push in a list 
+RPUSH - right push in a list
+LPOP - popping out from the left of a list
+RPOP - popping out from the right of a list
+LRANGE - list range - to get the list of elements for a given range
+LINSERT - insert before / after a particular element
+
+
+—————————————————— HASH ————————————————————
+HSET
+HMSET
+HMGET
+HGET
+HDEL
+HGETALL
+
+
+——————————————————— Generic Commands ——————————————————
+EXPIRE (seconds), PEXPIRE (milliseconds)
+EXPIREAT , PEXPIREAT 
+TTL - {output will be >= -2}
+
+
+
+If the expiry of a key is -1 => key will never expire
+If the expiry of a key is -2 => key has already expired and now we cannot get the value of it
+If the expiry of a key >= 0 => key will expire after this much time 
+
+
