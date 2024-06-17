@@ -1,0 +1,30 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/library
+#  jpa:
+#    show-ddl: true
+#    hibernate:
+#      ddl-auto: update
+#server:
+#  port: 8090
+
+# yml or yaml
+# jpg jpeg
+# ppt pptx
+# doc docx
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Ov23li04904NIfosZaLN
+            clientSecret: 415694a03be8386329282032453cf27afebbde0c
+#          facebook:
+#            clientId:
+#            clientSecret:
+#          instagram:
+logging:
+  level:
+    root: debug

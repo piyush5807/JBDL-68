@@ -1,0 +1,68 @@
+Permissions
+
+Read only -
+Write only -
+Read Write
+
+Oauth 2.0 - A paradigm where an application user doesn’t authenticate on a given platform but chose to use the identity it has on any other/social platform.
+
+
+
+———————— MyNoteMaker app —————————————————————
+
+Step1 : End user selecting an option on MyNoteMaker App for social login (Login via google / GitHub etc.) {Call from MyNoteMaker UI goes to MyNoteMaker server}
+
+Step 2: MyNoteMakerServer will call the API of social platform for authentication (github.com/login , accounts.google.com/login )
+
+
+————————— Happening on the social platform ———————————————
+
+Step 3: End user will have to authenticate themselves on the social platforms (which they trust)
+
+Step 4: Upon successful authentication, the social platform’s UI will ask for their consent that the MyNoteMaker app will be accessing your ___ data
+
+Step 5: End user once authorises this request, the social platform will redirect to the MyNoteMaker app and you are able to access MyNoteMaker app’s functionalities (basically social platform told the MyNoteMaker app that this has provided the consent and will share the relevant information with the MyNoteMaker app)
+Note: No social platforms passes the sensitive information like passwords to any oauth 2.0 client (MyNoteMaker app)
+
+
+Oauth 2.0 - authentication happening on a different platform and authorisation happening on the current platform which is enabling oauth 2.0
+
+
+
+
+MyNoteMaker - against a particular user id / username / email , it’s storing the list of notes
+
+Geeksforgeeks - A complex app which does a lot of things wrt course txns, …. Against a particular user id / username / email
+
+
+——————————————————
+
+Whenever we register an oauth client with the oauth server / provider, the server gives that client a client id and a secret which they need to use to make calls from their application
+
+
+dd1ea782edfc6b22e890 — piyush5807@gmai.com
+
+dd1ea782edfc6b22e890 — Piyush.aggarwal@red.health
+
+
+
+———————————— MyNoteMaker ————————————————
+
+Ov23li04904NIfosZaLN
+415694a03be8386329282032453cf27afebbde0c
+
+
+
+—————————————————————————————
+
+
+Homepage —> /oauth2/authorization/github (authorisation initiation url) —> github/login —> GitHub/authorise —> http://localhost:8080/login/oauth2/code/github (authorisation callback url / redirect uri defined in your app ) —> homepage
+
+
+—————————————————————————————
+
+Developer POV
+Go to your GitHub —> settings —> developer settings —> oauth apps —> register a new oauth app
+
+End user POV
+Go to your GitHub —> settings —> applications —> authorised oauth apps
